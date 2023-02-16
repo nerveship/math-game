@@ -36,27 +36,27 @@ void SelectGame()
 
     switch (gameSelected)
     {
-        case 0:
+        case 1:
             AdditionGame("Addition game selected");
             Environment.Exit(1);
             break;
 
-        case 1:
+        case 2:
             SubtractionGame("Subtraction game selected");
             Environment.Exit(1);
             break;
 
-        case 2:
+        case 3:
             MultiplicationGame("Multiplication game selected");
             Environment.Exit(1);
             break;
 
-        case 3:
+        case 4:
             DivisionGame("Division game selected");
             Environment.Exit(1);
             break;
 
-        case 4:
+        case 5:
             Quit("Quit game selected");
             Environment.Exit(1);
             break;
@@ -123,7 +123,55 @@ void AdditionGame(string message)
 
 void SubtractionGame(string message)
 {
+    Console.Clear();
     Console.WriteLine(message);
+
+    //Prompt user for No. of questions
+    Console.WriteLine("How many questions would you like today?");
+    string userNum = Console.ReadLine();
+    int userQuestions;
+
+    //Initialise random numbers and correct count
+    Random rnd = new Random();
+    int firstNumber;
+    int secondNumber;
+    int correct = 0;
+
+    //Check for numbers in user input
+    while (!int.TryParse(userNum, out userQuestions))
+    {
+        Console.WriteLine("Please input numbers");
+    }
+
+    //Game logic
+    for (int i = 0; i < userQuestions; i++)
+    {
+        firstNumber = rnd.Next(0, 20);
+        secondNumber = rnd.Next(0, 20);
+
+        Console.WriteLine($"{firstNumber} - {secondNumber}");
+        string userInput = Console.ReadLine();
+        int userGuess;
+
+        while (!int.TryParse(userInput, out userGuess))
+        {
+            Console.WriteLine("Please input numbers");
+            userInput = Console.ReadLine();
+        }
+
+        if (userGuess != firstNumber - secondNumber)
+        {
+            Console.WriteLine("Unfortunately, that is incorrect");
+        }
+        else
+        {
+            Console.WriteLine("Congrats, that is correct!");
+            correct++;
+        }
+    }
+
+    //End screen
+    Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
 }
 
 void MultiplicationGame(string message)
