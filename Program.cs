@@ -1,6 +1,8 @@
 ﻿var date = DateTime.Now;
 string name = GetName();
 
+List<string> games = new();
+
 MainMenu(name);
 
 string GetName()
@@ -26,7 +28,8 @@ void MainMenu(string name)
         "2. Subtraction\n" +
         "3. Multiplication\n" +
         "4. Division\n" +
-        "5. Quit the program");
+        "5. View previous games\n" +
+        "6. Quit the program") ;
         Console.WriteLine("-----------------------------------");
         SelectGame();
     } 
@@ -63,6 +66,10 @@ void SelectGame()
             break;
 
         case 5:
+            GetGames();
+            break;
+
+        case 6:
             Environment.Exit(1);
             break;
 
@@ -73,6 +80,22 @@ void SelectGame()
     }
 }
 
+void GetGames()
+{
+    Console.Clear();
+    Console.WriteLine("Game History");
+    Console.WriteLine("-----------------------------------");
+
+    foreach (var game in games)
+    {
+        Console.WriteLine(game);
+    }
+
+    Console.WriteLine("-----------------------------------");
+    Console.WriteLine("Press any key to return to the main menu");
+    Console.ReadLine();
+    Console.Clear();
+}
 void AdditionGame(string message)
 {
     Console.Clear();
@@ -123,6 +146,8 @@ void AdditionGame(string message)
             correct++;
         }
     }
+
+    AddToHistory(correct, userQuestions, "Addition");
 
     //End screen
     Console.Clear();
@@ -181,6 +206,8 @@ void SubtractionGame(string message)
         }
     }
 
+    AddToHistory(correct, userQuestions, "Subtraction");
+
     //End screen
     Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
@@ -209,6 +236,7 @@ void MultiplicationGame(string message)
     while (!int.TryParse(userNum, out userQuestions))
     {
         Console.WriteLine("Please input numbers");
+        userNum = Console.ReadLine();
     }
 
     //Game logic
@@ -237,6 +265,8 @@ void MultiplicationGame(string message)
             correct++;
         }
     }
+
+    AddToHistory(correct, userQuestions, "Multiplication");
 
     //End screen
     Console.Clear();
@@ -291,6 +321,9 @@ void DivisionGame(string message)
             correct++;
         }
     }
+
+    AddToHistory(correct, userQuestions, "Division");
+
     //End screen
     Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
@@ -322,4 +355,9 @@ int[] GetDivisionNumbers()
     result[1] = secondNumber;
 
     return result;
+}
+
+void AddToHistory(int gameScore, int questions, string gameType)
+{
+    games.Add($"{DateTime.Now} - {gameType}: {gameScore}/{questions} Correct");
 }
