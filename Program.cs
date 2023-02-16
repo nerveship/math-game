@@ -1,7 +1,7 @@
 ﻿var date = DateTime.Now;
 string name = GetName();
 
-MainMenu(date, name);
+MainMenu(name);
 
 string GetName()
 {
@@ -10,20 +10,27 @@ string GetName()
     return name;
 }
 
-void MainMenu(DateTime date, string name)
+void MainMenu(string name)
 {
     Console.Clear();
     Console.WriteLine("-----------------------------------");
     Console.WriteLine($"Hello {name.ToUpper()}");
     Console.WriteLine($"Today's date and time is {date}, I hope your day is going well!");
-    Console.WriteLine("What game would you like to play today? Select an option from the numbers below:\n" +
+
+    bool isGameRunning = true;
+
+    do
+    {
+        Console.WriteLine("What game would you like to play today? Select an option from the numbers below:\n" +
         "1. Addition\n" +
         "2. Subtraction\n" +
         "3. Multiplication\n" +
         "4. Division\n" +
         "5. Quit the program");
-    Console.WriteLine("-----------------------------------");
-    SelectGame();
+        Console.WriteLine("-----------------------------------");
+        SelectGame();
+    } 
+    while (isGameRunning);
 }
 
 void SelectGame()
@@ -41,26 +48,21 @@ void SelectGame()
     {
         case 1:
             AdditionGame("Addition game");
-            Environment.Exit(1);
             break;
 
         case 2:
             SubtractionGame("Subtraction game");
-            Environment.Exit(1);
             break;
 
         case 3:
             MultiplicationGame("Multiplication game");
-            Environment.Exit(1);
             break;
 
         case 4:
             DivisionGame("Division game");
-            Environment.Exit(1);
             break;
 
         case 5:
-            Quit("Quit game");
             Environment.Exit(1);
             break;
 
@@ -123,7 +125,11 @@ void AdditionGame(string message)
     }
 
     //End screen
+    Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
+    Console.WriteLine("Press any key to return to the main screen");
+    Console.ReadKey();
+    Console.Clear();
 }
 
 void SubtractionGame(string message)
@@ -176,7 +182,11 @@ void SubtractionGame(string message)
     }
 
     //End screen
+    Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
+    Console.WriteLine("Press any key to return to the main screen");
+    Console.ReadKey();
+    Console.Clear();
 }
 
 void MultiplicationGame(string message)
@@ -229,7 +239,11 @@ void MultiplicationGame(string message)
     }
 
     //End screen
+    Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
+    Console.WriteLine("Press any key to return to the main screen");
+    Console.ReadKey();
+    Console.Clear();
 }
 
 void DivisionGame(string message)
@@ -278,7 +292,11 @@ void DivisionGame(string message)
         }
     }
     //End screen
+    Console.Clear();
     Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
+    Console.WriteLine("Press any key to return to the main screen");
+    Console.ReadKey();
+    Console.Clear();
 }
 
 void Quit(string message)
