@@ -2,12 +2,14 @@
 string name = GetName();
 
 MainMenu(date, name);
+
 string GetName()
 {
     Console.WriteLine("Please tell me your name");
     string name = Console.ReadLine();
     return name;
 }
+
 void MainMenu(DateTime date, string name)
 {
     Console.Clear();
@@ -23,6 +25,7 @@ void MainMenu(DateTime date, string name)
     Console.WriteLine("-----------------------------------");
     SelectGame();
 }
+
 void SelectGame()
 {
     int gameSelected;
@@ -37,27 +40,27 @@ void SelectGame()
     switch (gameSelected)
     {
         case 1:
-            AdditionGame("Addition game selected");
+            AdditionGame("Addition game");
             Environment.Exit(1);
             break;
 
         case 2:
-            SubtractionGame("Subtraction game selected");
+            SubtractionGame("Subtraction game");
             Environment.Exit(1);
             break;
 
         case 3:
-            MultiplicationGame("Multiplication game selected");
+            MultiplicationGame("Multiplication game");
             Environment.Exit(1);
             break;
 
         case 4:
-            DivisionGame("Division game selected");
+            DivisionGame("Division game");
             Environment.Exit(1);
             break;
 
         case 5:
-            Quit("Quit game selected");
+            Quit("Quit game");
             Environment.Exit(1);
             break;
 
@@ -108,11 +111,13 @@ void AdditionGame(string message)
 
         if (userGuess != firstNumber + secondNumber)
         {
-            Console.WriteLine("Unfortunately, that is incorrect");
+            Console.WriteLine("Unfortunately, that is incorrect. Press any key for the next question");
+            Console.ReadKey();
         }
         else
         {
-            Console.WriteLine("Congrats, that is correct!");
+            Console.WriteLine("Congrats, that is correct! Press any key for the next question");
+            Console.ReadKey();
             correct++;
         }
     }
@@ -176,7 +181,55 @@ void SubtractionGame(string message)
 
 void MultiplicationGame(string message)
 {
+    Console.Clear();
     Console.WriteLine(message);
+
+    //Prompt user for No. of questions
+    Console.WriteLine("How many questions would you like today?");
+    string userNum = Console.ReadLine();
+    int userQuestions;
+
+    //Initialise random numbers and correct count
+    Random rnd = new Random();
+    int firstNumber;
+    int secondNumber;
+    int correct = 0;
+
+    //Check for numbers in user input
+    while (!int.TryParse(userNum, out userQuestions))
+    {
+        Console.WriteLine("Please input numbers");
+    }
+
+    //Game logic
+    for (int i = 0; i < userQuestions; i++)
+    {
+        firstNumber = rnd.Next(0, 20);
+        secondNumber = rnd.Next(0, 20);
+
+        Console.WriteLine($"{firstNumber} * {secondNumber}");
+        string userInput = Console.ReadLine();
+        int userGuess;
+
+        while (!int.TryParse(userInput, out userGuess))
+        {
+            Console.WriteLine("Please input numbers");
+            userInput = Console.ReadLine();
+        }
+
+        if (userGuess != firstNumber * secondNumber)
+        {
+            Console.WriteLine("Unfortunately, that is incorrect");
+        }
+        else
+        {
+            Console.WriteLine("Congrats, that is correct!");
+            correct++;
+        }
+    }
+
+    //End screen
+    Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
 }
 
 void DivisionGame(string message)
@@ -224,6 +277,8 @@ void DivisionGame(string message)
             correct++;
         }
     }
+    //End screen
+    Console.WriteLine($"Congrats, you got {correct} out of {userQuestions} right!");
 }
 
 void Quit(string message)
