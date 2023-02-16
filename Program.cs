@@ -5,11 +5,12 @@ string name = Console.ReadLine();
 
 MainMenu(date, name);
 
-static void MainMenu(DateTime date, string name)
+void MainMenu(DateTime date, string name)
 {
+    Console.Clear();
     Console.WriteLine("-----------------------------------");
     Console.WriteLine($"Hello {name.ToUpper()}");
-    Console.WriteLine($"Today's date is {date}, I hope today is going well!");
+    Console.WriteLine($"Today's date and time is {date}, I hope your day is going well!");
     Console.WriteLine("What game would you like to play today? Select an option from the numbers below:\n" +
         "1. Addition\n" +
         "2. Subtraction\n" +
@@ -19,29 +20,72 @@ static void MainMenu(DateTime date, string name)
     Console.WriteLine("-----------------------------------");
     SelectGame();
 }
-static void SelectGame()
+void SelectGame()
 {
-    int gameSelected = Convert.ToInt32(Console.ReadLine());
+    int gameSelected;
+    string userInput = Console.ReadLine();
+
+    while(!int.TryParse(userInput, out gameSelected))
+    {
+        Console.WriteLine("Invalid input");
+        userInput = Console.ReadLine();
+    }
+
     switch (gameSelected)
     {
         case 0:
-            Console.WriteLine("Addition game selected");
+            AdditionGame("Addition game selected");
+            Environment.Exit(1);
             break;
 
         case 1:
-            Console.WriteLine("Subtraction game selected");
+            SubtractionGame("Subtraction game selected");
+            Environment.Exit(1);
             break;
 
         case 2:
-            Console.WriteLine("Multiplication game selected");
+            MultiplicationGame("Multiplication game selected");
+            Environment.Exit(1);
             break;
 
         case 3:
-            Console.WriteLine("Division game selected");
+            DivisionGame("Division game selected");
+            Environment.Exit(1);
             break;
 
         case 4:
-            Console.WriteLine("Quit selected");
+            Quit("Quit game selected");
+            Environment.Exit(1);
+            break;
+
+        default:
+            Console.WriteLine("Invalid input.");
+            Environment.Exit(1);
             break;
     }
+}
+
+void AdditionGame(string message)
+{
+    Console.WriteLine(message);
+}
+
+void SubtractionGame(string message)
+{
+    Console.WriteLine(message);
+}
+
+void MultiplicationGame(string message)
+{
+    Console.WriteLine(message);
+}
+
+void DivisionGame(string message)
+{
+    Console.WriteLine(message);
+}
+
+void Quit(string message)
+{
+    Console.WriteLine(message);
 }
