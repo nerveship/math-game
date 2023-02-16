@@ -181,10 +181,72 @@ void MultiplicationGame(string message)
 
 void DivisionGame(string message)
 {
+    Console.Clear();
     Console.WriteLine(message);
+
+    //Prompt user for No. of questions
+    Console.WriteLine("How many questions would you like today?");
+    string userNum = Console.ReadLine();
+    int userQuestions;
+
+    int correct = 0;
+
+    //Check for numbers in user input
+    while (!int.TryParse(userNum, out userQuestions))
+    {
+        Console.WriteLine("Please input numbers");
+    }
+
+    for (int i = 0; i < userQuestions; i++)
+    {
+        var divisionNumbers = GetDivisionNumbers();
+        int firstNumber = divisionNumbers[0];
+        int secondNumber = divisionNumbers[1];
+
+        Console.WriteLine($"{firstNumber} / {secondNumber}");
+
+        string userInput = Console.ReadLine();
+        int userGuess;
+
+        while (!int.TryParse(userInput, out userGuess))
+        {
+            Console.WriteLine("Please input numbers");
+            userInput = Console.ReadLine();
+        }
+
+        if (userGuess != firstNumber / secondNumber)
+        {
+            Console.WriteLine("Unfortunately, that is incorrect");
+        }
+        else
+        {
+            Console.WriteLine("Congrats, that is correct!");
+            correct++;
+        }
+    }
 }
 
 void Quit(string message)
 {
     Console.WriteLine(message);
+}
+
+int[] GetDivisionNumbers()
+{
+    Random random= new Random();
+    int firstNumber = random.Next(0, 99);
+    int secondNumber = random.Next(0, 99);
+
+    var result = new int[2];
+
+    while (firstNumber % secondNumber != 0)
+    {
+        firstNumber = random.Next(1, 99);
+        secondNumber = random.Next(1, 99);
+    }
+
+    result[0] = firstNumber;
+    result[1] = secondNumber;
+
+    return result;
 }
