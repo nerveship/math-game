@@ -4,8 +4,6 @@ var date = DateTime.Now;
 string name = GetName();
 var menu = new menu();
 
-List<string> games = new();
-
 menu.MainMenu(name, date);
 
 string GetName()
