@@ -1,4 +1,6 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -53,7 +55,7 @@
                 }
             }
 
-            helpers.AddToHistory(correct, userQuestions, "Addition");
+            helpers.AddToHistory(correct, userQuestions, GameType.Addition);
 
             //End screen
             Console.Clear();
@@ -112,7 +114,7 @@
                 }
             }
 
-            helpers.AddToHistory(correct, userQuestions, "Subtraction");
+            helpers.AddToHistory(correct, userQuestions, GameType.Subtraction);
 
             //End screen
             Console.Clear();
@@ -172,7 +174,7 @@
                 }
             }
 
-            helpers.AddToHistory(correct, userQuestions, "Multiplication");
+            helpers.AddToHistory(correct, userQuestions, GameType.Multiplication);
 
             //End screen
             Console.Clear();
@@ -228,7 +230,7 @@
                 }
             }
 
-            helpers.AddToHistory(correct, userQuestions, "Division");
+            helpers.AddToHistory(correct, userQuestions, GameType.Division);
 
             //End screen
             Console.Clear();
