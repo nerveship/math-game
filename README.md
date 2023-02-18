@@ -20,3 +20,13 @@ My first multi-file console application and first time using the solution explor
 
 * Ability to view previous games in the current session
     - ![image](https://user-images.githubusercontent.com/23292290/219857637-6cddd04a-f75d-49f6-98c0-5a65f87c96d2.png)
+
+# Challenges:
+    - This was my first time creating multiple files that would communicate with each other in C#, so I spent a lot of time analysing exactly what I was doing and how the classes and functions interacted with one another, learning as I went along. 
+    - A lot of the time my initial code was messy and made things quite hard to understand, but with some pointers I eventually got a bit more organised. 
+
+# Resources used: 
+    - [C# Academy]((https://www.thecsharpacademy.com/))
+    - Various stack overflow articles
+    - Various articles from the C# documentation
+    - C# Yellow Book by Rob Miles
