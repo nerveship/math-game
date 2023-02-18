@@ -11,3 +11,12 @@ My first multi-file console application and first time using the solution explor
 # Features:
 * Console based user interface
     - ![image](https://user-images.githubusercontent.com/23292290/219857528-15ab4a98-ade9-4193-8098-f05a4c7aa93b.png)
+
+* Four different games to play
+    - Addition, subtraction, division, multiplication
+
+* Choose the number of questions provided
+    - ![image](https://user-images.githubusercontent.com/23292290/219857659-810a31c4-4e17-4eaf-b09e-a6d92427ce48.png)
+
+* Ability to view previous games in the current session
+    - ![image](https://user-images.githubusercontent.com/23292290/219857637-6cddd04a-f75d-49f6-98c0-5a65f87c96d2.png)
