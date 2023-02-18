@@ -29,4 +29,4 @@ My first multi-file console application and first time using the solution explor
 - [C# Academy](https://www.thecsharpacademy.com/)
 - Various stack overflow articles
 - Various articles from the C# documentation
-- C# Yellow Book by Rob Miles
+- [C# Yellow Book by Rob Miles](http://www.csharpcourse.com/)
