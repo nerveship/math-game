@@ -26,7 +26,7 @@ My first multi-file console application and first time using the solution explor
 - A lot of the time my initial code was messy and made things quite hard to understand, but with some pointers I eventually got a bit more organised. 
 
 # Resources used: 
-- [C# Academy]((https://www.thecsharpacademy.com/))
+- [C# Academy](https://www.thecsharpacademy.com/)
 - Various stack overflow articles
 - Various articles from the C# documentation
 - C# Yellow Book by Rob Miles
