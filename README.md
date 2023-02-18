@@ -10,4 +10,4 @@ My first multi-file console application and first time using the solution explor
 
 # Features:
 * Console based user interface
-    -![image](https://user-images.githubusercontent.com/23292290/219857528-15ab4a98-ade9-4193-8098-f05a4c7aa93b.png)
+    - ![image](https://user-images.githubusercontent.com/23292290/219857528-15ab4a98-ade9-4193-8098-f05a4c7aa93b.png)
